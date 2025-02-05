@@ -18,20 +18,18 @@ pipeline {
 
         stage('Dependency track analysis') {
             steps {
-                ws ("$WORKSPACE") {
-                    withCredentials([string(credentialsId: 'dtrack_apikey', variable: 'dtrack_apikey')]) {
-                            dependencyTrackPublisher(
-                                artifact: 'bom-3.json',
-                                projectName: "sts-admin",
-                                projectVersion: "1.2.0-SNAPSHOT",
-                                synchronous: true,
-                                dependencyTrackApiKey: "${dtrack_apikey}",
-                                projectProperties: [tags: "feature/test1-test"],
-                                autoCreateProjects: true 
-                            )
-                    }
+                withCredentials([string(credentialsId: 'dtrack_apikey', variable: 'dtrack_apikey')]) {
+                        dependencyTrackPublisher(
+                            artifact: 'bom-3.json',
+                            projectName: "sts-admin",
+                            projectVersion: "1.2.0-SNAPSHOT",
+                            synchronous: true,
+                            dependencyTrackApiKey: "${dtrack_apikey}",
+                            projectProperties: [tags: "feature/test1-test"],
+                            autoCreateProjects: true 
+                        )
                 }
             }
-        }    
-    }
+        }
+    }    
 }
