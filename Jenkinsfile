@@ -25,9 +25,8 @@ pipeline {
                             projectVersion: "1.2.0-SNAPSHOT",
                             synchronous: true,
                             dependencyTrackApiKey: "${dtrack_apikey}",
-                            projectProperties: [tags: "release/sts-3.26.1"],
+                            projectProperties: [tags: "release/sts-3.26.1", isLatest: true],
                             autoCreateProjects: true,
-                            isLatestProjectVersion: true
 
                         )
                 }
