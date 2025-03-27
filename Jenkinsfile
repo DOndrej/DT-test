@@ -22,7 +22,7 @@ pipeline {
                         dependencyTrackPublisher(
                             artifact: 'bom-3.json',
                             projectName: "sts-admin",
-                            projectVersion: "latest,
+                            projectVersion: "latest",
                             synchronous: true,
                             dependencyTrackApiKey: "${dtrack_apikey}",
                             projectProperties: [tags: "release/sts-3.31.0", isLatest: true, parentId: "b27f6877-77f3-431e-8c26-1b41c2770809"],
